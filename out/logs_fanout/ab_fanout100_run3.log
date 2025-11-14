@@ -22,30 +22,32 @@ Document Path:          /api/timeline?user=fanout100_1&limit=20
 Document Length:        44 bytes
 
 Concurrency Level:      50
-Time taken for tests:   32.454 seconds
+Time taken for tests:   67.827 seconds
 Complete requests:      500
-Failed requests:        0
-Total transferred:      157020 bytes
-HTML transferred:       22000 bytes
-Requests per second:    15.41 [#/sec] (mean)
-Time per request:       3245.367 [ms] (mean)
-Time per request:       64.907 [ms] (mean, across all concurrent requests)
-Transfer rate:          4.72 [Kbytes/sec] received
+Failed requests:        16
+   (Connect: 0, Receive: 0, Length: 16, Exceptions: 0)
+Non-2xx responses:      16
+Total transferred:      161600 bytes
+HTML transferred:       26464 bytes
+Requests per second:    7.37 [#/sec] (mean)
+Time per request:       6782.734 [ms] (mean)
+Time per request:       135.655 [ms] (mean, across all concurrent requests)
+Transfer rate:          2.33 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:       43   67  26.0     60     353
-Processing:   932 2596 1340.6   2294    7288
-Waiting:      932 2595 1340.7   2293    7288
-Total:       1000 2663 1338.4   2357    7337
+Connect:       41   55  22.6     47     318
+Processing:    27 4925 4665.5   2451   33976
+Waiting:       27 4925 4665.5   2451   33976
+Total:         70 4979 4665.4   2500   34022
 
 Percentage of the requests served within a certain time (ms)
-  50%   2357
-  66%   2708
-  75%   3009
-  80%   3243
-  90%   4538
-  95%   6190
-  98%   6820
-  99%   7182
- 100%   7337 (longest request)
+  50%   2500
+  66%   4021
+  75%   7024
+  80%   9779
+  90%  12060
+  95%  13156
+  98%  19804
+  99%  21647
+ 100%  34022 (longest request)
