@@ -1,0 +1,51 @@
+This is ApacheBench, Version 2.3 <$Revision: 1913912 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Finished 500 requests
+
+
+Server Software:        Google
+Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.2,ECDHE-ECDSA-CHACHA20-POLY1305,256,256
+Server Temp Key:        ECDH X25519 253 bits
+TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=fanout50_1&limit=20
+Document Length:        43 bytes
+
+Concurrency Level:      50
+Time taken for tests:   25.139 seconds
+Complete requests:      500
+Failed requests:        0
+Total transferred:      156508 bytes
+HTML transferred:       21500 bytes
+Requests per second:    19.89 [#/sec] (mean)
+Time per request:       2513.929 [ms] (mean)
+Time per request:       50.279 [ms] (mean, across all concurrent requests)
+Transfer rate:          6.08 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       45   79  51.0     68    1058
+Processing:   472 2113 1167.7   1880    4352
+Waiting:      472 2112 1167.4   1877    4351
+Total:        546 2193 1169.7   1942    5060
+
+Percentage of the requests served within a certain time (ms)
+  50%   1942
+  66%   3014
+  75%   3256
+  80%   3492
+  90%   3797
+  95%   4005
+  98%   4106
+  99%   4304
+ 100%   5060 (longest request)

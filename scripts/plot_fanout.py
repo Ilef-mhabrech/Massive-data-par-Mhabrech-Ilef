@@ -4,7 +4,7 @@ from pathlib import Path
 import matplotlib.patches as mpatches
 
 ###############################################################################
-# Plot fanout.png à partir de out/fanout.csv
+# Plot fanout.png à partir de out/fanout.csv (SANS ÉCART-TYPE)
 ###############################################################################
 
 # Dossier racine du projet (parent de scripts/)
@@ -18,16 +18,14 @@ df = pd.read_csv(csv_path)
 df["AVG_TIME_S"] = df["AVG_TIME"] / 1000.0
 
 # Agrégation par nombre de followees (PARAM)
-params = sorted(df["PARAM"].unique())  # [10, 50, 100]
+params = sorted(df["PARAM"].unique())  # ex : [10, 50, 100]
 
 means = []
-stds = []
 failed_flags = []
 
 for p in params:
     subset = df[df["PARAM"] == p]
     means.append(subset["AVG_TIME_S"].mean())
-    stds.append(subset["AVG_TIME_S"].std(ddof=0))
     failed_flags.append(subset["FAILED"].any())
 
 # Création de la figure
@@ -39,8 +37,6 @@ x_pos = range(len(params))
 bars = ax.bar(
     x_pos,
     means,
-    yerr=stds,
-    capsize=5,
     edgecolor="black",
 )
 
@@ -57,9 +53,12 @@ ax.set_xticklabels([str(p) for p in params])
 ax.set_title("Temps moyen par requête selon le nombre de followees (posts=100, c=50)")
 ax.set_xlabel("Nombre de followees par utilisateur")
 ax.set_ylabel("Temps moyen par requête (s)")
+
 ax.grid(axis="y", linestyle="--", alpha=0.3)
 
-# Légende (incluant la clé pour l'écart-type)
+# --------------------------------------------------------------------
+# Légende — SANS écart-type
+# --------------------------------------------------------------------
 ok_patch = mpatches.Patch(
     facecolor=bars[0].get_facecolor(),
     edgecolor="black",
@@ -73,24 +72,7 @@ fail_patch = mpatches.Patch(
     label="Au moins une requête échouée",
 )
 
-std_patch = mpatches.Patch(
-    facecolor="white",
-    edgecolor="black",
-    label="Barres noires = écart-type",
-)
-
-ax.legend(handles=[ok_patch, fail_patch, std_patch], loc="upper left")
-
-# Texte global sur l'ordre de grandeur de l'écart-type
-global_std = df["AVG_TIME_S"].std(ddof=0)
-ax.text(
-    0.99,
-    0.98,
-    f"±{global_std:.2f}s",
-    transform=ax.transAxes,
-    ha="right",
-    va="top",
-)
+ax.legend(handles=[ok_patch, fail_patch], loc="upper left")
 
 plt.tight_layout()
 
