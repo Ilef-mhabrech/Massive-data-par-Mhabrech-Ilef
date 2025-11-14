@@ -139,10 +139,26 @@ fanout.png	Graphique du fanout
 log_*	Logs ApacheBench
 
 
-### 9.  Interprétation rapide : 
-Le temps de réponse augmente avec la concurrence (effet direct de la charge sur App Engine).
-Le nombre de posts augmente légèrement la latence (plus de données à merger).
-Le fanout (nombre de followees) est le facteur le plus critique :
-plus il est élevé, plus la requête GQL IN devient lourde
-→ car elle provoque un k-way merge côté Datastore.
-Les erreurs apparaissent lorsque la charge dépasse la capacité "autoscaling minimal" d’App Engine Standard.
+### 9.  Interprétation : 
+## A. Graphique – Concurrence
+![conc](./out/conc.png)
+
+==> Le temps de réponse reste stable jusqu’à ~20 utilisateurs concurrents, puis augmente fortement à partir de 50.
+Des échecs apparaissent dès 100 utilisateurs, montrant que le backend atteint ses limites.
+La charge simultanée est donc le facteur le plus critique pour TinyInsta.
+
+
+## B. Graphique – Nombre de posts
+![post](./out/post.png)
+
+==> Quand le nombre de posts augmente (10 → 100 → 1000), le temps de réponse monte légèrement mais reste maîtrisé.
+Les performances sont moins sensibles à la quantité de données qu’à la concurrence.
+Datastore gère bien les gros volumes tant que le fanout reste constant.
+
+## C. Graphique – Fanout
+![fanout](./out/fanout.png)
+
+==> Plus un utilisateur suit de personnes (10 → 50 → 100), plus la requête timeline devient lente.
+Le fanout élevé oblige Datastore à fusionner beaucoup de sous-requêtes IN, ce qui dégrade les performances.
+Des échecs apparaissent à haut fanout, montrant une mauvaise scalabilité de TinyInsta pour les timelines larges.
+
