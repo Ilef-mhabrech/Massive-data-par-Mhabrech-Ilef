@@ -136,3 +136,32 @@ Datastore gère bien les gros volumes tant que le fanout reste constant.
 Le fanout élevé oblige Datastore à fusionner beaucoup de sous-requêtes IN, ce qui dégrade les performances.
 Des échecs apparaissent à haut fanout, montrant une mauvaise scalabilité de TinyInsta pour les timelines larges.
 
+### 8. structure du répertoire : 
+
+
+```
+Massive-data-par-Mhabrech-Ilef/
+│
+├── out/                        # Résultats finaux (obligatoires pour le rendu)
+│   ├── conc.csv
+│   ├── post.csv
+│   ├── fanout.csv
+│   ├── conc.png
+│   ├── post.png
+│   ├── fanout.png
+│   ├── log_conc/               # Logs ApacheBench
+│   ├── log_post/
+│   └── log_fanout/
+│
+├── scripts/                    # Scripts d’expérimentation
+│   ├── bench_conc.sh          # Benchmark concurrence
+│   ├── bench_post.sh          # Benchmark taille des posts
+│   ├── bench_fanout.sh        # Benchmark fanout
+│   ├── plot_conc.py           # Génère conc.png
+│   ├── plot_post.py           # Génère post.png
+│   └── plot_fanout.py         # Génère fanout.png
+│
+└── README.md                   # Ce fichier
+```
+
+
