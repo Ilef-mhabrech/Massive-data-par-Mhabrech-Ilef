@@ -7,37 +7,8 @@ URL de l'application TinyInsta déployée sur Google Cloud :
 ```sh
  https://maximal-beach-473712-d1.ew.r.appspot.com
 ```
- 
-### 2. Structure du dépôt
 
-Massive-data-par-Mhabrech-Ilef/
-│
-├── out/                        # Résultats finaux (obligatoires pour le rendu)
-│   ├── conc.csv
-│   ├── post.csv
-│   ├── fanout.csv
-│   ├── conc.png
-│   ├── post.png
-│   ├── fanout.png
-│   ├── log_conc/               # Logs ApacheBench
-│   ├── log_post/
-│   └── log_fanout/
-│
-├── scripts/                    # Scripts d’expérimentation
-│   ├── bench_conc.sh          # Benchmark concurrence
-│   ├── bench_post.sh          # Benchmark taille des posts
-│   ├── bench_fanout.sh        # Benchmark fanout
-│   ├── plot_conc.py           # Génère conc.png
-│   ├── plot_post.py           # Génère post.png
-│   └── plot_fanout.py         # Génère fanout.png
-│
-└── README.md                   # Ce fichier
-
-
-
-
-
-### 3. Génération des données (seed)
+### 2. Génération des données (seed)
 Le Datastore est rempli selon les paramètres du projet :
 1000 utilisateurs
 50 posts par utilisateur
@@ -51,7 +22,7 @@ curl -X POST \
   ```
 Les données seedées sont visibles dans GCP → Datastore.
 
-### 4.  Benchmark 1 – Passage à l’échelle sur la concurrence
+### 3.  Benchmark 1 – Passage à l’échelle sur la concurrence
 
 ** Objectif : 
 Mesurer la performance de la timeline en faisant varier le nombre d’utilisateurs simulés simultanément :
@@ -81,7 +52,7 @@ out/conc.csv
 out/conc.png
 out/log_conc/*.log
 
-### 5. Benchmark 2 – Passage à l’échelle sur la taille des données (posts)
+### 4. Benchmark 2 – Passage à l’échelle sur la taille des données (posts)
 Paramètres : 
 Concurrence : 50
 Followees fixes : 20
@@ -105,7 +76,7 @@ out/post.csv
 out/post.png
 out/log_post/*.log
 
-### 6. Benchmark 3 – Variation du fanout (nombre de followees)
+### 5. Benchmark 3 – Variation du fanout (nombre de followees)
 
 Concurrence fixe : 50
 Posts fixes : 100
@@ -130,7 +101,7 @@ out/fanout.csv
 out/fanout.png
 out/log_fanout/*.log
 
-### 7. Fichiers finaux : 
+### 6. Fichiers finaux : 
 Dans le dossier out/ :
 Fichier	Description
 conc.csv	Résultats du benchmark de concurrence
@@ -142,7 +113,7 @@ fanout.png	Graphique du fanout
 log_*	Logs ApacheBench
 
 
-### 9.  Interprétation : 
+### 7.  Interprétation : 
 ## A. Graphique – Concurrence
 ![conc](./out/conc.png)
 
