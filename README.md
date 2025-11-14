@@ -1,7 +1,6 @@
 # Massive-data-par-Mhabrech-Ilef
 
 ### Projet Données Massives & Cloud — Benchmark TinyInsta 
-### Étudiante : Ilef Mhabrech
 
 ### 1. Application TinyInsta déployée
 URL de l'application TinyInsta déployée sur Google Cloud :
