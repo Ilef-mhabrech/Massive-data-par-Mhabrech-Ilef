@@ -48,10 +48,11 @@ python3 plot_conc.py
 ```
 
 Résultats dans :
+```
 out/conc.csv
 out/conc.png
 out/log_conc/*.log
-
+```
 ### 4. Benchmark 2 – Passage à l’échelle sur la taille des données (posts)
 Paramètres : 
 Concurrence : 50
@@ -72,10 +73,11 @@ python3 scripts/plot_post.py
 ```
 
 Fichiers générés :
+```
 out/post.csv
 out/post.png
 out/log_post/*.log
-
+```
 ### 5. Benchmark 3 – Variation du fanout (nombre de followees)
 
 Concurrence fixe : 50
@@ -97,23 +99,15 @@ python3 scripts/plot_fanout.py
 ```
 
 Fichiers générés :
+```
 out/fanout.csv
 out/fanout.png
 out/log_fanout/*.log
-
-### 6. Fichiers finaux : 
-Dans le dossier out/ :
-Fichier	Description
-conc.csv	Résultats du benchmark de concurrence
-post.csv	Résultats selon le nombre de posts
-fanout.csv	Résultats selon le fanout
-conc.png	Graphique de concurrence
-post.png	Graphique des posts
-fanout.png	Graphique du fanout
-log_*	Logs ApacheBench
+```
 
 
-### 7.  Interprétation : 
+
+### 6.  Interprétation : 
 ## A. Graphique – Concurrence
 ![conc](./out/conc.png)
 
@@ -142,26 +136,27 @@ Des échecs apparaissent à haut fanout, montrant une mauvaise scalabilité de T
 ```
 Massive-data-par-Mhabrech-Ilef/
 │
-├── out/                        # Résultats finaux 
+├── out/                       
 │   ├── conc.csv
 │   ├── post.csv
 │   ├── fanout.csv
 │   ├── conc.png
 │   ├── post.png
 │   ├── fanout.png
-│   ├── log_conc/               # Logs ApacheBench
+│   ├── log_conc/
 │   ├── log_post/
 │   └── log_fanout/
 │
-├── scripts/                    # Scripts d’expérimentation
-│   ├── bench_conc.sh          # Benchmark concurrence
-│   ├── bench_post.sh          # Benchmark taille des posts
-│   ├── bench_fanout.sh        # Benchmark fanout
-│   ├── plot_conc.py           # Génère conc.png
-│   ├── plot_post.py           # Génère post.png
-│   └── plot_fanout.py         # Génère fanout.png
+├── scripts/
+│   ├── bench_conc.sh
+│   ├── bench_post.sh
+│   ├── bench_fanout.sh
+│   ├── plot_conc.py
+│   ├── plot_post.py
+│   └── plot_fanout.py
 │
-└── README.md                   # Ce fichier
+└── README.md
+
 ```
 
 
