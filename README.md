@@ -142,7 +142,7 @@ Des échecs apparaissent à haut fanout, montrant une mauvaise scalabilité de T
 ```
 Massive-data-par-Mhabrech-Ilef/
 │
-├── out/                        # Résultats finaux (obligatoires pour le rendu)
+├── out/                        # Résultats finaux 
 │   ├── conc.csv
 │   ├── post.csv
 │   ├── fanout.csv
