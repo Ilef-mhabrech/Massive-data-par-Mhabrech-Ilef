@@ -10,28 +10,30 @@ URL de l'application TinyInsta déployée sur Google Cloud :
 ```
  
 ### 2. Structure du dépôt
+
 Massive-data-par-Mhabrech-Ilef/
 │
-├── out/                         # Résultats finaux obligatoire pour le rendu
+├── out/                        # Résultats finaux (obligatoires pour le rendu)
 │   ├── conc.csv
 │   ├── post.csv
 │   ├── fanout.csv
 │   ├── conc.png
 │   ├── post.png
 │   ├── fanout.png
-│   ├── log_conc/
+│   ├── log_conc/               # Logs ApacheBench
 │   ├── log_post/
 │   └── log_fanout/
 │
-├── scripts/
-│   ├── bench_conc.sh            # Benchmark concurrence
-│   ├── bench_post.sh            # Benchmark posts
-│   ├── bench_fanout.sh          # Benchmark fanout
-│   ├── plot_conc.py             # Génère conc.png
-│   ├── plot_post.py             # Génère post.png
-│   └── plot_fanout.py           # Génère fanout.png
+├── scripts/                    # Scripts d’expérimentation
+│   ├── bench_conc.sh          # Benchmark concurrence
+│   ├── bench_post.sh          # Benchmark taille des posts
+│   ├── bench_fanout.sh        # Benchmark fanout
+│   ├── plot_conc.py           # Génère conc.png
+│   ├── plot_post.py           # Génère post.png
+│   └── plot_fanout.py         # Génère fanout.png
 │
-└── README.md                    # Ce fichier
+└── README.md                   # Ce fichier
+
 
 
 
