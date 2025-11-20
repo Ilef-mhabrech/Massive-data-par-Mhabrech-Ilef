@@ -16,9 +16,13 @@ Le Datastore est rempli selon les paramètres du projet :
 
 Commande utilisée :
 ```sh
-curl -X POST \
-  -H "X-Seed-Token: change-me-seed-token" \
-  "https://maximal-beach-473712-d1.ew.r.appspot.com/admin/seed?users=1000&posts=50&follows_min=20&follows_max=20&prefix=benchA"
+cpython3 seed.py \
+  --users 1000 \
+  --posts 50000 \
+  --follows-min 20 \
+  --follows-max 20 \
+  --prefix user
+
   ```
 Les données seedées sont visibles dans GCP → Datastore.
 
