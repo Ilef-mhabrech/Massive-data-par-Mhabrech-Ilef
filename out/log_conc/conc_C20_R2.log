@@ -18,34 +18,35 @@ SSL/TLS Protocol:       TLSv1.2,ECDHE-ECDSA-CHACHA20-POLY1305,256,256
 Server Temp Key:        ECDH X25519 253 bits
 TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
 
-Document Path:          /api/timeline?user=benchA1&limit=20
-Document Length:        566 bytes
+Document Path:          /timeline?user=user1
+Document Length:        207 bytes
 
 Concurrency Level:      20
-Time taken for tests:   4.041 seconds
+Time taken for tests:   2.236 seconds
 Complete requests:      500
 Failed requests:        0
-Total transferred:      418500 bytes
-HTML transferred:       283000 bytes
-Requests per second:    123.74 [#/sec] (mean)
-Time per request:       161.634 [ms] (mean)
-Time per request:       8.082 [ms] (mean, across all concurrent requests)
-Transfer rate:          101.14 [Kbytes/sec] received
+Non-2xx responses:      500
+Total transferred:      246500 bytes
+HTML transferred:       103500 bytes
+Requests per second:    223.63 [#/sec] (mean)
+Time per request:       89.434 [ms] (mean)
+Time per request:       4.472 [ms] (mean, across all concurrent requests)
+Transfer rate:          107.67 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:       42   55  19.2     51     352
-Processing:    42   99  45.8     83     258
-Waiting:       42   98  45.8     82     258
-Total:         89  154  49.8    137     415
+Connect:       41   55  10.3     51     104
+Processing:    22   30  11.3     27     128
+Waiting:       22   30  11.3     27     128
+Total:         64   85  16.0     80     181
 
 Percentage of the requests served within a certain time (ms)
-  50%    137
-  66%    159
-  75%    178
-  80%    199
-  90%    228
-  95%    254
-  98%    273
-  99%    291
- 100%    415 (longest request)
+  50%     80
+  66%     85
+  75%     90
+  80%     94
+  90%    103
+  95%    120
+  98%    132
+  99%    150
+ 100%    181 (longest request)
