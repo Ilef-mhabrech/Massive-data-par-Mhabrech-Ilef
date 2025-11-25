@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-# Benchmark de la concurrence pour TinyInsta
-# Produit out/conc.csv au format demandé :
+# Benchmark "Passage à l'échelle sur la taille des données"
+# Produit out/post.csv au format :
 # PARAM,AVG_TIME,RUN,FAILED
+#
+# PARAM = nombre de posts par utilisateur (10, 100, 1000)
+# Concurrence fixée à 50, comme demandé par le prof.
 
 set -euo pipefail
 
@@ -12,50 +15,64 @@ set -euo pipefail
 # URL de ton appli déployée
 APP_URL="https://maximal-beach-473712-d1.ew.r.appspot.com"
 
-# Utilisateur dont on lit la timeline
-USER="user1"
+# Concurrence fixée à 50 (consigne du prof)
+CONCURRENCY=50
 
 # Nombre total de requêtes par run
 TOTAL_REQUESTS=500
 
+# Paramètres (posts par utilisateur)
+PARAM_LEVELS=(10 100 1000)
+
 # Répertoires
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="$ROOT_DIR/out"
-LOG_DIR="$OUT_DIR/log_conc"
+LOG_DIR="$OUT_DIR/log_post"
 
 mkdir -p "$OUT_DIR"
 mkdir -p "$LOG_DIR"
 
 # Fichier CSV de sortie
-CSV="$OUT_DIR/conc.csv"
+CSV="$OUT_DIR/post.csv"
 
 echo "Écriture dans $CSV"
 echo "PARAM,AVG_TIME,RUN,FAILED" > "$CSV"
 
 ##############################################
-# Niveaux de concurrence
+# Fonction pour choisir l'utilisateur selon PARAM
 ##############################################
-
-CONCURRENCY_LEVELS=(1 10 20 50 100 1000)
+get_user_for_param() {
+  local param="$1"
+  case "$param" in
+    10)   echo "posts10_1" ;;
+    100)  echo "posts100_1" ;;
+    1000) echo "posts1000_1" ;;
+    *)    echo "posts10_1" ;;  # fallback
+  esac
+}
 
 ##############################################
 # Exécution des benchmarks
 ##############################################
 
-for C in "${CONCURRENCY_LEVELS[@]}"; do
-  for RUN in 1 2 3; do
-    echo "=== C=$C RUN=$RUN ==="
+for P in "${PARAM_LEVELS[@]}"; do
+  echo ""
+  echo "=== PARAM=$P posts/user (C=$CONCURRENCY) ==="
 
-    LOG="$LOG_DIR/conc_C${C}_R${RUN}.log"
+  USER="$(get_user_for_param "$P")"
+
+  for RUN in 1 2 3; do
+    echo "   ⏳ RUN $RUN (user=$USER)..."
+
+    LOG="$LOG_DIR/post_P${P}_R${RUN}.log"
 
     FAILED=0
     AVG_MS=0
 
-    # Lancer ab ; si échec => FAILED=1
-    if ab -n "$TOTAL_REQUESTS" -c "$C" \
+    # Lancer Apache Bench avec concurrence fixe à 50
+    if ab -n "$TOTAL_REQUESTS" -c "$CONCURRENCY" \
       "${APP_URL}/timeline?user=${USER}" >"$LOG" 2>&1; then
 
-      # Extraire le temps moyen par requête (Time per request)
       AVG_MS=$(grep "Time per request:" "$LOG" | head -n 1 | awk '{print $4}')
 
       if [[ -z "$AVG_MS" ]]; then
@@ -66,14 +83,14 @@ for C in "${CONCURRENCY_LEVELS[@]}"; do
     else
       FAILED=1
       AVG_MS=0
-      echo "  -> 'ab' a échoué pour C=$C RUN=$RUN. FAILED=1"
+      echo "  -> 'ab' a échoué pour PARAM=$P RUN=$RUN. FAILED=1"
     fi
 
-    echo "${C},${AVG_MS},${RUN},${FAILED}" >> "$CSV"
+    echo "${P},${AVG_MS},${RUN},${FAILED}" >> "$CSV"
   done
 done
 
 ##############################################
-echo "Benchmark terminé."
+echo "Benchmark POST terminé."
 echo "➡ CSV généré : $CSV"
 echo "➡ Logs disponibles dans : $LOG_DIR/"
