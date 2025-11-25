@@ -1,0 +1,59 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+0076A6CC22780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0076A6CC22780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0076A6CC22780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0076A6CC22780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0076A6CC22780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+
+Document Path:          /timeline?user=user228
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.168 seconds
+Complete requests:      5
+Failed requests:        5
+   (Connect: 0, Receive: 0, Length: 5, Exceptions: 0)
+Non-2xx responses:      5
+Total transferred:      2180 bytes
+HTML transferred:       1035 bytes
+Requests per second:    29.70 [#/sec] (mean)
+Time per request:       33.669 [ms] (mean)
+Time per request:       33.669 [ms] (mean, across all concurrent requests)
+Transfer rate:          12.65 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        9   17  11.2     14      36
+Processing:    15   17   1.7     17      19
+Waiting:       15   16   0.9     17      17
+Total:         24   34  12.7     31      55
+WARNING: The median and mean for the waiting time are not within a normal deviation
+        These results are probably not that reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%     28
+  66%     34
+  75%     34
+  80%     55
+  90%     55
+  95%     55
+  98%     55
+  99%     55
+ 100%     55 (longest request)

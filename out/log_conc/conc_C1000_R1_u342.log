@@ -1,0 +1,38 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00568E4D607C0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+
+Document Path:          /timeline?user=user342
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.023 seconds
+Complete requests:      1
+Failed requests:        1
+   (Connect: 0, Receive: 0, Length: 1, Exceptions: 0)
+Non-2xx responses:      1
+Total transferred:      436 bytes
+HTML transferred:       207 bytes
+Requests per second:    44.09 [#/sec] (mean)
+Time per request:       22.683 [ms] (mean)
+Time per request:       22.683 [ms] (mean, across all concurrent requests)
+Transfer rate:          18.77 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        9    9   0.0      9       9
+Processing:    14   14   0.0     14      14
+Waiting:       14   14   0.0     14      14
+Total:         23   23   0.0     23      23

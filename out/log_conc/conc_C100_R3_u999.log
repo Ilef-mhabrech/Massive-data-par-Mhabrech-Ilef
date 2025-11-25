@@ -1,0 +1,57 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00F6C49F3F780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6C49F3F780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6C49F3F780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6C49F3F780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6C49F3F780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+
+Document Path:          /timeline?user=user999
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.086 seconds
+Complete requests:      5
+Failed requests:        5
+   (Connect: 0, Receive: 0, Length: 5, Exceptions: 0)
+Non-2xx responses:      5
+Total transferred:      2180 bytes
+HTML transferred:       1035 bytes
+Requests per second:    58.46 [#/sec] (mean)
+Time per request:       17.105 [ms] (mean)
+Time per request:       17.105 [ms] (mean, across all concurrent requests)
+Transfer rate:          24.89 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        3    4   1.4      4       6
+Processing:    12   13   0.8     13      14
+Waiting:       12   13   0.8     13      14
+Total:         16   17   1.4     17      19
+
+Percentage of the requests served within a certain time (ms)
+  50%     16
+  66%     17
+  75%     17
+  80%     19
+  90%     19
+  95%     19
+  98%     19
+  99%     19
+ 100%     19 (longest request)

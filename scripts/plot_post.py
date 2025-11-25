@@ -79,3 +79,6 @@ plt.tight_layout()
 out_path = BASE_DIR / "out" / "post.png"
 plt.savefig(out_path, dpi=150)
 plt.show()
+
+/* 
+rajouter l'ecart tyoe et son clé  */ 

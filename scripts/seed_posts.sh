@@ -17,7 +17,7 @@ python3 "$SEED_PY" \
   --follows-min "$FOLLOWS_MIN" \
   --follows-max "$FOLLOWS_MAX" \
   --prefix "posts10_"
-
+//il faut exactement 10 dans la base de données pas 110 
 echo "=== Seed pour 100 posts par utilisateur ==="
 python3 "$SEED_PY" \
   --users "$USERS" \

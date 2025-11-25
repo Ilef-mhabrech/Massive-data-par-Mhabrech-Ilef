@@ -1,0 +1,67 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0086F20F4C790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+
+Document Path:          /timeline?user=user757
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.385 seconds
+Complete requests:      10
+Failed requests:        10
+   (Connect: 0, Receive: 0, Length: 10, Exceptions: 0)
+Non-2xx responses:      10
+Total transferred:      4360 bytes
+HTML transferred:       2070 bytes
+Requests per second:    25.94 [#/sec] (mean)
+Time per request:       38.549 [ms] (mean)
+Time per request:       38.549 [ms] (mean, across all concurrent requests)
+Transfer rate:          11.05 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        4   19  13.9     19      40
+Processing:     9   19   4.4     20      25
+Waiting:        8   19   4.5     20      25
+Total:         23   38  15.9     33      65
+
+Percentage of the requests served within a certain time (ms)
+  50%     33
+  66%     51
+  75%     53
+  80%     55
+  90%     65
+  95%     65
+  98%     65
+  99%     65
+ 100%     65 (longest request)
