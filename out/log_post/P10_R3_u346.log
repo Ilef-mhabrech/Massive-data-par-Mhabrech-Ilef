@@ -1,0 +1,66 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A67AFA0E7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=user346&limit=20
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   41.118 seconds
+Complete requests:      10
+Failed requests:        10
+   (Connect: 0, Receive: 0, Length: 10, Exceptions: 0)
+Total transferred:      23140 bytes
+HTML transferred:       20990 bytes
+Requests per second:    0.24 [#/sec] (mean)
+Time per request:       4111.814 [ms] (mean)
+Time per request:       4111.814 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.55 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        4    7   5.8      5      22
+Processing:  1590 4104 3064.5   3342   10674
+Waiting:     1590 4104 3064.6   3342   10674
+Total:       1596 4112 3064.0   3346   10683
+
+Percentage of the requests served within a certain time (ms)
+  50%   3346
+  66%   4324
+  75%   4437
+  80%   8248
+  90%  10683
+  95%  10683
+  98%  10683
+  99%  10683
+ 100%  10683 (longest request)

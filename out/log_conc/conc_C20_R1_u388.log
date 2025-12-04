@@ -2,96 +2,51 @@ This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00A60E08E57C0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A60E08E57C0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0096144581780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A60E08E57C0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 ..done
 
 
 Server Software:        Google
-Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
 Server Port:            443
 SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
 Server Temp Key:        X25519 253 bits
-TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
 
-Document Path:          /timeline?user=user388
+Document Path:          /api/timeline?user=user388
 Document Length:        0 bytes
 
 Concurrency Level:      1
-Time taken for tests:   0.572 seconds
-Complete requests:      25
-Failed requests:        25
-   (Connect: 0, Receive: 0, Length: 25, Exceptions: 0)
-Non-2xx responses:      25
-Total transferred:      10900 bytes
-HTML transferred:       5175 bytes
-Requests per second:    43.69 [#/sec] (mean)
-Time per request:       22.889 [ms] (mean)
-Time per request:       22.889 [ms] (mean, across all concurrent requests)
-Transfer rate:          18.60 [Kbytes/sec] received
+Time taken for tests:   1.734 seconds
+Complete requests:      3
+Failed requests:        3
+   (Connect: 0, Receive: 0, Length: 3, Exceptions: 0)
+Total transferred:      6972 bytes
+HTML transferred:       6327 bytes
+Requests per second:    1.73 [#/sec] (mean)
+Time per request:       577.931 [ms] (mean)
+Time per request:       577.931 [ms] (mean, across all concurrent requests)
+Transfer rate:          3.93 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        4    8   4.2      7      21
-Processing:     8   14   2.5     15      19
-Waiting:        7   14   2.5     14      19
-Total:         18   23   4.5     21      35
+Connect:        4    6   2.7      7       9
+Processing:   233  572 490.6    742    1135
+Waiting:      232  572 490.6    742    1135
+Total:        236  578 489.9    749    1139
 
 Percentage of the requests served within a certain time (ms)
-  50%     21
-  66%     23
-  75%     25
-  80%     27
-  90%     29
-  95%     32
-  98%     35
-  99%     35
- 100%     35 (longest request)
+  50%    358
+  66%    358
+  75%   1139
+  80%   1139
+  90%   1139
+  95%   1139
+  98%   1139
+  99%   1139
+ 100%   1139 (longest request)

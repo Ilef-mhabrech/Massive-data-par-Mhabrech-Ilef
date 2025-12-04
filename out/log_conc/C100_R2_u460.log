@@ -1,0 +1,56 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00F6E4154B7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6E4154B7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6E4154B7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6E4154B7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6E4154B7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=user460&limit=5
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   2.786 seconds
+Complete requests:      5
+Failed requests:        5
+   (Connect: 0, Receive: 0, Length: 5, Exceptions: 0)
+Total transferred:      3855 bytes
+HTML transferred:       2785 bytes
+Requests per second:    1.79 [#/sec] (mean)
+Time per request:       557.225 [ms] (mean)
+Time per request:       557.225 [ms] (mean, across all concurrent requests)
+Transfer rate:          1.35 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        3   10  10.4      6      28
+Processing:    37  547 286.1    673     702
+Waiting:       37  547 286.1    673     702
+Total:         41  557 289.6    690     709
+
+Percentage of the requests served within a certain time (ms)
+  50%    673
+  66%    708
+  75%    708
+  80%    709
+  90%    709
+  95%    709
+  98%    709
+  99%    709
+ 100%    709 (longest request)

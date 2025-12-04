@@ -1,0 +1,52 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00567310647F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00567310647F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=user336
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.609 seconds
+Complete requests:      2
+Failed requests:        2
+   (Connect: 0, Receive: 0, Length: 2, Exceptions: 0)
+Total transferred:      4648 bytes
+HTML transferred:       4218 bytes
+Requests per second:    3.28 [#/sec] (mean)
+Time per request:       304.445 [ms] (mean)
+Time per request:       304.445 [ms] (mean, across all concurrent requests)
+Transfer rate:          7.45 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        6    6   1.0      7       7
+Processing:   241  298  80.3    355     355
+Waiting:      241  298  80.3    355     355
+Total:        248  304  79.4    360     360
+WARNING: The median and mean for the initial connection time are not within a normal deviation
+        These results are probably not that reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%    360
+  66%    360
+  75%    360
+  80%    360
+  90%    360
+  95%    360
+  98%    360
+  99%    360
+ 100%    360 (longest request)

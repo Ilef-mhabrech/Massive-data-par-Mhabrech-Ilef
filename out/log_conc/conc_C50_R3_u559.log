@@ -2,66 +2,36 @@ This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0086B536B37F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+0036CEF583790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 ..done
 
 
 Server Software:        Google
-Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
 Server Port:            443
 SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
 Server Temp Key:        X25519 253 bits
-TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
 
-Document Path:          /timeline?user=user559
+Document Path:          /api/timeline?user=user559
 Document Length:        0 bytes
 
 Concurrency Level:      1
-Time taken for tests:   0.328 seconds
-Complete requests:      10
-Failed requests:        10
-   (Connect: 0, Receive: 0, Length: 10, Exceptions: 0)
-Non-2xx responses:      10
-Total transferred:      4360 bytes
-HTML transferred:       2070 bytes
-Requests per second:    30.51 [#/sec] (mean)
-Time per request:       32.775 [ms] (mean)
-Time per request:       32.775 [ms] (mean, across all concurrent requests)
-Transfer rate:          12.99 [Kbytes/sec] received
+Time taken for tests:   0.186 seconds
+Complete requests:      1
+Failed requests:        1
+   (Connect: 0, Receive: 0, Length: 1, Exceptions: 0)
+Total transferred:      2341 bytes
+HTML transferred:       2126 bytes
+Requests per second:    5.37 [#/sec] (mean)
+Time per request:       186.370 [ms] (mean)
+Time per request:       186.370 [ms] (mean, across all concurrent requests)
+Transfer rate:          12.27 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        4   13   9.4     11      38
-Processing:    10   20   7.0     22      29
-Waiting:        9   20   7.0     22      29
-Total:         21   33   8.9     32      50
-
-Percentage of the requests served within a certain time (ms)
-  50%     32
-  66%     33
-  75%     40
-  80%     41
-  90%     50
-  95%     50
-  98%     50
-  99%     50
- 100%     50 (longest request)
+Connect:        6    6   0.0      6       6
+Processing:   181  181   0.0    181     181
+Waiting:      180  180   0.0    180     180
+Total:        186  186   0.0    186     186

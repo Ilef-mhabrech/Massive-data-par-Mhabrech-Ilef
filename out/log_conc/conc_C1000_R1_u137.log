@@ -2,37 +2,36 @@ This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
-00967CC9E07B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00E65832787F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 ..done
 
 
 Server Software:        Google
-Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
 Server Port:            443
 SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
 Server Temp Key:        X25519 253 bits
-TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
 
-Document Path:          /timeline?user=user137
+Document Path:          /api/timeline?user=user137
 Document Length:        0 bytes
 
 Concurrency Level:      1
-Time taken for tests:   0.024 seconds
+Time taken for tests:   0.100 seconds
 Complete requests:      1
 Failed requests:        1
    (Connect: 0, Receive: 0, Length: 1, Exceptions: 0)
-Non-2xx responses:      1
-Total transferred:      436 bytes
-HTML transferred:       207 bytes
-Requests per second:    41.08 [#/sec] (mean)
-Time per request:       24.340 [ms] (mean)
-Time per request:       24.340 [ms] (mean, across all concurrent requests)
-Transfer rate:          17.49 [Kbytes/sec] received
+Total transferred:      2332 bytes
+HTML transferred:       2117 bytes
+Requests per second:    9.97 [#/sec] (mean)
+Time per request:       100.286 [ms] (mean)
+Time per request:       100.286 [ms] (mean, across all concurrent requests)
+Transfer rate:          22.71 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        4    4   0.0      4       4
-Processing:    20   20   0.0     20      20
-Waiting:       15   15   0.0     15      15
-Total:         24   24   0.0     24      24
+Connect:       17   17   0.0     17      17
+Processing:    83   83   0.0     83      83
+Waiting:       83   83   0.0     83      83
+Total:        100  100   0.0    100     100

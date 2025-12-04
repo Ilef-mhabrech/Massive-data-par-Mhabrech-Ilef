@@ -1,1 +1,52 @@
-./generate_conc.sh: line 83: ab: command not found
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00A6896CE77E0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A6896CE77E0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00A6896CE77E0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=user718
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.578 seconds
+Complete requests:      3
+Failed requests:        3
+   (Connect: 0, Receive: 0, Length: 3, Exceptions: 0)
+Total transferred:      7002 bytes
+HTML transferred:       6357 bytes
+Requests per second:    5.19 [#/sec] (mean)
+Time per request:       192.778 [ms] (mean)
+Time per request:       192.778 [ms] (mean, across all concurrent requests)
+Transfer rate:          11.82 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        3    4   2.1      5       7
+Processing:    97  189 115.9    234     319
+Waiting:       97  188 115.9    234     319
+Total:        100  193 115.4    239     322
+
+Percentage of the requests served within a certain time (ms)
+  50%    156
+  66%    156
+  75%    322
+  80%    322
+  90%    322
+  95%    322
+  98%    322
+  99%    322
+ 100%    322 (longest request)

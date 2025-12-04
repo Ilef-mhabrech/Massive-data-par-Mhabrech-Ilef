@@ -1,0 +1,52 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00F6ABA18B7A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6ABA18B7A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00F6ABA18B7A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=user2
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.478 seconds
+Complete requests:      3
+Failed requests:        3
+   (Connect: 0, Receive: 0, Length: 3, Exceptions: 0)
+Total transferred:      6942 bytes
+HTML transferred:       6297 bytes
+Requests per second:    6.27 [#/sec] (mean)
+Time per request:       159.391 [ms] (mean)
+Time per request:       159.391 [ms] (mean, across all concurrent requests)
+Transfer rate:          14.18 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        3    6   2.9      8       9
+Processing:    44  153 144.6    207     317
+Waiting:       44  153 144.6    207     317
+Total:         50  159 142.4    214     320
+
+Percentage of the requests served within a certain time (ms)
+  50%    107
+  66%    107
+  75%    320
+  80%    320
+  90%    320
+  95%    320
+  98%    320
+  99%    320
+ 100%    320 (longest request)

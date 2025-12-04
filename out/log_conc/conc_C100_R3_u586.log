@@ -1,1 +1,56 @@
-./generate_conc.sh: line 83: ab: command not found
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00167274ED780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00167274ED780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00167274ED780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00167274ED780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00167274ED780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          //api/timeline?user=user586
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   2.686 seconds
+Complete requests:      5
+Failed requests:        5
+   (Connect: 0, Receive: 0, Length: 5, Exceptions: 0)
+Total transferred:      11655 bytes
+HTML transferred:       10580 bytes
+Requests per second:    1.86 [#/sec] (mean)
+Time per request:       537.280 [ms] (mean)
+Time per request:       537.280 [ms] (mean, across all concurrent requests)
+Transfer rate:          4.24 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        9   15   6.7     15      25
+Processing:   180  522 248.1    667     753
+Waiting:      180  522 248.1    666     753
+Total:        205  537 242.5    679     762
+
+Percentage of the requests served within a certain time (ms)
+  50%    644
+  66%    715
+  75%    715
+  80%    762
+  90%    762
+  95%    762
+  98%    762
+  99%    762
+ 100%    762 (longest request)

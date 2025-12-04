@@ -1,0 +1,52 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00C664656A7F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00C664656A7F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00C664656A7F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=user946
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.669 seconds
+Complete requests:      3
+Failed requests:        3
+   (Connect: 0, Receive: 0, Length: 3, Exceptions: 0)
+Total transferred:      6972 bytes
+HTML transferred:       6327 bytes
+Requests per second:    4.49 [#/sec] (mean)
+Time per request:       222.844 [ms] (mean)
+Time per request:       222.844 [ms] (mean, across all concurrent requests)
+Transfer rate:          10.18 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        3    4   1.1      4       5
+Processing:    54  219 231.5    301     484
+Waiting:       54  219 231.5    301     483
+Total:         58  223 232.5    305     489
+
+Percentage of the requests served within a certain time (ms)
+  50%    122
+  66%    122
+  75%    489
+  80%    489
+  90%    489
+  95%    489
+  98%    489
+  99%    489
+ 100%    489 (longest request)

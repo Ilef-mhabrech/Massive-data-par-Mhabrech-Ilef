@@ -1,0 +1,50 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+0096D2792D7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+0096D2792D7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=user606
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   1.508 seconds
+Complete requests:      2
+Failed requests:        2
+   (Connect: 0, Receive: 0, Length: 2, Exceptions: 0)
+Total transferred:      4656 bytes
+HTML transferred:       4226 bytes
+Requests per second:    1.33 [#/sec] (mean)
+Time per request:       753.889 [ms] (mean)
+Time per request:       753.889 [ms] (mean, across all concurrent requests)
+Transfer rate:          3.02 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        4    7   3.2      9       9
+Processing:    51  747 984.2   1443    1443
+Waiting:       51  747 984.3   1443    1443
+Total:         56  754 987.3   1452    1452
+
+Percentage of the requests served within a certain time (ms)
+  50%   1452
+  66%   1452
+  75%   1452
+  80%   1452
+  90%   1452
+  95%   1452
+  98%   1452
+  99%   1452
+ 100%   1452 (longest request)

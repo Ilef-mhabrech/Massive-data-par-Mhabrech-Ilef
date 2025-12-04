@@ -3,25 +3,25 @@ Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-0066C8E1E47D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00A638AFF1780000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 ..done
 
 
@@ -36,32 +36,32 @@ Document Path:          /timeline?user=user600
 Document Length:        0 bytes
 
 Concurrency Level:      1
-Time taken for tests:   0.461 seconds
+Time taken for tests:   1.303 seconds
 Complete requests:      10
 Failed requests:        10
    (Connect: 0, Receive: 0, Length: 10, Exceptions: 0)
 Non-2xx responses:      10
 Total transferred:      4360 bytes
 HTML transferred:       2070 bytes
-Requests per second:    21.71 [#/sec] (mean)
-Time per request:       46.053 [ms] (mean)
-Time per request:       46.053 [ms] (mean, across all concurrent requests)
-Transfer rate:          9.25 [Kbytes/sec] received
+Requests per second:    7.67 [#/sec] (mean)
+Time per request:       130.335 [ms] (mean)
+Time per request:       130.335 [ms] (mean, across all concurrent requests)
+Transfer rate:          3.27 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        5   21  14.6     20      54
-Processing:    13   25  13.4     24      60
-Waiting:       13   25  13.6     22      60
-Total:         29   46  13.3     44      71
+Connect:        3    6   2.4      5      10
+Processing:    15  124  82.1    138     240
+Waiting:       15  124  82.1    138     240
+Total:         20  130  82.5    146     250
 
 Percentage of the requests served within a certain time (ms)
-  50%     44
-  66%     46
-  75%     48
-  80%     65
-  90%     71
-  95%     71
-  98%     71
-  99%     71
- 100%     71 (longest request)
+  50%    146
+  66%    184
+  75%    194
+  80%    209
+  90%    250
+  95%    250
+  98%    250
+  99%    250
+ 100%    250 (longest request)

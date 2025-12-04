@@ -3,15 +3,15 @@ Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
-00C6B8D802790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00164F0CEC7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-00C6B8D802790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00164F0CEC7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-00C6B8D802790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00164F0CEC7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-00C6B8D802790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00164F0CEC7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 SSL read failed (1) - closing connection
-00C6B8D802790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+00164F0CEC7B0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 ..done
 
 
@@ -26,32 +26,32 @@ Document Path:          /timeline?user=user928
 Document Length:        0 bytes
 
 Concurrency Level:      1
-Time taken for tests:   0.142 seconds
+Time taken for tests:   0.945 seconds
 Complete requests:      5
 Failed requests:        5
    (Connect: 0, Receive: 0, Length: 5, Exceptions: 0)
 Non-2xx responses:      5
 Total transferred:      2180 bytes
 HTML transferred:       1035 bytes
-Requests per second:    35.28 [#/sec] (mean)
-Time per request:       28.341 [ms] (mean)
-Time per request:       28.341 [ms] (mean, across all concurrent requests)
-Transfer rate:          15.02 [Kbytes/sec] received
+Requests per second:    5.29 [#/sec] (mean)
+Time per request:       189.055 [ms] (mean)
+Time per request:       189.055 [ms] (mean, across all concurrent requests)
+Transfer rate:          2.25 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        4   11   6.4     12      20
-Processing:    15   17   2.5     16      21
-Waiting:       15   17   2.5     16      21
-Total:         22   28   5.3     27      36
+Connect:        4   11   8.1     12      24
+Processing:    46  177  90.1    195     296
+Waiting:       46  177  90.1    195     296
+Total:         58  189  89.0    213     300
 
 Percentage of the requests served within a certain time (ms)
-  50%     26
-  66%     29
-  75%     29
-  80%     36
-  90%     36
-  95%     36
-  98%     36
-  99%     36
- 100%     36 (longest request)
+  50%    205
+  66%    221
+  75%    221
+  80%    300
+  90%    300
+  95%    300
+  98%    300
+  99%    300
+ 100%    300 (longest request)

@@ -3,82 +3,94 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import matplotlib.patches as mpatches
 
-###############################################################################
-# Plot post.png à partir de out/post.csv (SANS ÉCART-TYPE)
-###############################################################################
-
-# Dossier racine du projet (parent de scripts/)
-BASE_DIR = Path(__file__).resolve().parents[1]
+# --------------------------------------------------------------------
+# Chargement du fichier post.csv
+# --------------------------------------------------------------------
+BASE_DIR = Path(__file__).resolve().parents[1]   # dossier Massive-data-par-Mhabrech-Ilef
 csv_path = BASE_DIR / "out" / "post.csv"
 
-# Chargement du CSV
 df = pd.read_csv(csv_path)
 
-# AVG_TIME est en ms -> on passe en secondes
+# Conversion ms → secondes
 df["AVG_TIME_S"] = df["AVG_TIME"] / 1000.0
 
-# Agrégation par nombre de posts (PARAM)
-params = sorted(df["PARAM"].unique())  # ex : [10, 100, 1000]
+# --------------------------------------------------------------------
+# Agrégation : moyenne et écart-type par PARAM (nombre de posts/user)
+# --------------------------------------------------------------------
+params = sorted(df["PARAM"].unique())
 
 means = []
+stds = []
 failed_flags = []
 
 for p in params:
     subset = df[df["PARAM"] == p]
     means.append(subset["AVG_TIME_S"].mean())
+    stds.append(subset["AVG_TIME_S"].std())
     failed_flags.append(subset["FAILED"].any())
 
-# Création de la figure
+# --------------------------------------------------------------------
+# STYLE ROSE 💗
+# --------------------------------------------------------------------
 plt.figure(figsize=(8, 4))
 ax = plt.gca()
 
-x_pos = range(len(params))
+rose = "#ff69b4"           # rose flashy
+rose_clair = "#ffb7d5"     # rose clair pastel
 
 bars = ax.bar(
-    x_pos,
+    range(len(params)),
     means,
-    edgecolor="black",   # plus de yerr donc plus propre
+    yerr=stds,
+    capsize=6,
+    color=rose_clair,
+    edgecolor=rose,
+    ecolor=rose,
+    linewidth=1.5
 )
 
-# Hachures si au moins une requête a échoué
+# Ajout hachures si FAILED = 1
 for bar, failed in zip(bars, failed_flags):
     if failed:
-        bar.set_hatch("//")
+        bar.set_hatch("///")
+        bar.set_edgecolor("black")
 
-# Axe X
-ax.set_xticks(list(x_pos))
+# --------------------------------------------------------------------
+# Axes & titres
+# --------------------------------------------------------------------
+ax.set_xticks(range(len(params)))
 ax.set_xticklabels([str(p) for p in params])
 
-# Titres / labels
-ax.set_title("Temps moyen par requête selon le nombre de posts (c=50)")
-ax.set_xlabel("Posts par utilisateur")
-ax.set_ylabel("Temps moyen par requête (s)")
+ax.set_title("Temps moyen selon la taille des données (posts par user)", fontsize=14, color=rose)
+ax.set_xlabel("Nombre de posts par utilisateur", fontsize=12)
+ax.set_ylabel("Temps moyen par requête (s)", fontsize=12)
+
 ax.grid(axis="y", linestyle="--", alpha=0.3)
 
 # --------------------------------------------------------------------
-# Légende SANS écart-type
+# Légende
 # --------------------------------------------------------------------
-ok_patch = mpatches.Patch(
-    facecolor=bars[0].get_facecolor(),
+legend_ok = mpatches.Patch(
+    facecolor=rose_clair,
+    edgecolor=rose,
+    label="Toutes les requêtes OK"
+)
+legend_failed = mpatches.Patch(
+    facecolor=rose_clair,
     edgecolor="black",
-    label="Toutes les requêtes OK",
+    hatch="///",
+    label="Au moins une requête échouée"
 )
 
-fail_patch = mpatches.Patch(
-    facecolor=bars[0].get_facecolor(),
-    edgecolor="black",
-    hatch="//",
-    label="Au moins une requête échouée",
-)
-
-ax.legend(handles=[ok_patch, fail_patch], loc="upper left")
+ax.legend(handles=[legend_ok, legend_failed], loc="upper left")
 
 plt.tight_layout()
 
+# --------------------------------------------------------------------
 # Sauvegarde
+# --------------------------------------------------------------------
 out_path = BASE_DIR / "out" / "post.png"
 plt.savefig(out_path, dpi=150)
 plt.show()
 
-/* 
-rajouter l'ecart tyoe et son clé  */ 
+print(f"Plot généré : {out_path}")

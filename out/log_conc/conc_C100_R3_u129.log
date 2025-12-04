@@ -2,56 +2,36 @@ This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
-Benchmarking maximal-beach-473712-d1.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
-00C6B760E47A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-00C6B760E47A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-00C6B760E47A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-00C6B760E47A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-00C6B760E47A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+0046437897790000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
 ..done
 
 
 Server Software:        Google
-Server Hostname:        maximal-beach-473712-d1.ew.r.appspot.com
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
 Server Port:            443
 SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
 Server Temp Key:        X25519 253 bits
-TLS Server Name:        maximal-beach-473712-d1.ew.r.appspot.com
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
 
-Document Path:          /timeline?user=user129
+Document Path:          /api/timeline?user=user129
 Document Length:        0 bytes
 
 Concurrency Level:      1
-Time taken for tests:   0.134 seconds
-Complete requests:      5
-Failed requests:        5
-   (Connect: 0, Receive: 0, Length: 5, Exceptions: 0)
-Non-2xx responses:      5
-Total transferred:      2180 bytes
-HTML transferred:       1035 bytes
-Requests per second:    37.18 [#/sec] (mean)
-Time per request:       26.898 [ms] (mean)
-Time per request:       26.898 [ms] (mean, across all concurrent requests)
-Transfer rate:          15.83 [Kbytes/sec] received
+Time taken for tests:   0.105 seconds
+Complete requests:      1
+Failed requests:        1
+   (Connect: 0, Receive: 0, Length: 1, Exceptions: 0)
+Total transferred:      2328 bytes
+HTML transferred:       2113 bytes
+Requests per second:    9.52 [#/sec] (mean)
+Time per request:       105.075 [ms] (mean)
+Time per request:       105.075 [ms] (mean, across all concurrent requests)
+Transfer rate:          21.64 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        7   11   2.9     13      15
-Processing:    12   15   2.7     15      19
-Waiting:       12   15   2.8     15      19
-Total:         22   27   2.8     28      30
-
-Percentage of the requests served within a certain time (ms)
-  50%     27
-  66%     29
-  75%     29
-  80%     30
-  90%     30
-  95%     30
-  98%     30
-  99%     30
- 100%     30 (longest request)
+Connect:       13   13   0.0     13      13
+Processing:    92   92   0.0     92      92
+Waiting:       92   92   0.0     92      92
+Total:        105  105   0.0    105     105

@@ -1,0 +1,52 @@
+This is ApacheBench, Version 2.3 <$Revision: 1903618 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
+00662C18AC7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+SSL read failed (1) - closing connection
+00662C18AC7D0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+..done
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
+Server Temp Key:        X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=user956
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.620 seconds
+Complete requests:      2
+Failed requests:        2
+   (Connect: 0, Receive: 0, Length: 2, Exceptions: 0)
+Total transferred:      4640 bytes
+HTML transferred:       4210 bytes
+Requests per second:    3.23 [#/sec] (mean)
+Time per request:       310.077 [ms] (mean)
+Time per request:       310.077 [ms] (mean, across all concurrent requests)
+Transfer rate:          7.31 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        5    5   0.8      6       6
+Processing:   275  305  42.2    334     334
+Waiting:      275  304  42.3    334     334
+Total:        280  310  43.1    340     340
+WARNING: The median and mean for the initial connection time are not within a normal deviation
+        These results are probably not that reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%    340
+  66%    340
+  75%    340
+  80%    340
+  90%    340
+  95%    340
+  98%    340
+  99%    340
+ 100%    340 (longest request)
