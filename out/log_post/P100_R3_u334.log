@@ -3,64 +3,6 @@ Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
 Licensed to The Apache Software Foundation, http://www.apache.org/
 
 Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)...SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-SSL read failed (1) - closing connection
-0016BAF7F77F0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
-..done
-
-
-Server Software:        Google
-Server Hostname:        projectcloud-479410.ew.r.appspot.com
-Server Port:            443
-SSL/TLS Protocol:       TLSv1.3,TLS_AES_256_GCM_SHA384,256,256
-Server Temp Key:        X25519 253 bits
-TLS Server Name:        projectcloud-479410.ew.r.appspot.com
-
-Document Path:          /api/timeline?user=user334&limit=20
-Document Length:        0 bytes
-
-Concurrency Level:      1
-Time taken for tests:   18.790 seconds
-Complete requests:      10
-Failed requests:        10
-   (Connect: 0, Receive: 0, Length: 10, Exceptions: 0)
-Total transferred:      10700 bytes
-HTML transferred:       8560 bytes
-Requests per second:    0.53 [#/sec] (mean)
-Time per request:       1878.977 [ms] (mean)
-Time per request:       1878.977 [ms] (mean, across all concurrent requests)
-Transfer rate:          0.56 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        3    7   9.3      4      34
-Processing:   620 1871 1214.8   2263    3846
-Waiting:      619 1871 1214.9   2263    3846
-Total:        624 1879 1211.5   2267    3851
-
-Percentage of the requests served within a certain time (ms)
-  50%   2267
-  66%   2315
-  75%   2757
-  80%   3371
-  90%   3851
-  95%   3851
-  98%   3851
-  99%   3851
- 100%   3851 (longest request)
+003611A3877A0000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:../ssl/record/rec_layer_s3.c:316:
+apr_pollset_poll: The timeout specified has expired (70007)
+Total of 1 requests completed

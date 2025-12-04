@@ -119,15 +119,22 @@ out/post.png
 ### 5. Benchmark 3 – Variation du fanout (nombre de followees)
 
 Concurrence fixe : 50
-Posts fixes : 100
+Posts fixes : 100*1000 users 
 Followees à tester :
 10, 50, 100
+
+ on prépare d'abord la data, on crée 100 000 posts pour le fichier fanout.csv.
+▶on lance : 
+```sh
+chmod +x prepare_fanout_data.sh
+./scripts/prepare_fanout_data.sh
+```
 
 ▶on lance cette commande pour avoir le fichier fanout.csv :
 
 ```sh
-chmod +x bench_fanout.sh
-./scripts/bench_fanout.sh
+chmod +x generate_fanout.sh
+./scripts/generate_fanout.sh
 ```
 
 ▶Générer le graphique : 
@@ -187,9 +194,14 @@ Avec 1000 posts/user, la majorité des runs échouent : Datastore atteint ses li
 ## C. Graphique – Fanout
 ![fanout](./out/fanout.png)
 
-==> Plus un utilisateur suit de personnes (10 → 50 → 100), plus la requête timeline devient lente.
-Le fanout élevé oblige Datastore à fusionner beaucoup de sous-requêtes IN, ce qui dégrade les performances.
-Des échecs apparaissent à haut fanout, montrant une mauvaise scalabilité de TinyInsta pour les timelines larges.
+nterprétation :
+
+L’augmentation du fanout dégrade fortement les performances :
+Fanout = 10 : temps moyen faible (~0,5 s), service fluide.
+Fanout = 50 : temps moyen autour de 5–6 s, apparition de timeouts → le backend commence à saturer.
+Fanout = 100 : temps encore très élevé (~6–7 s), le système est déjà en surcharge et n’arrive plus vraiment à suivre.
+
+==>TinyInsta supporte bien les petits fanouts, mais dès que les utilisateurs suivent beaucoup de comptes, la construction de la timeline devient trop coûteuse (lectures + fusion dans Datastore), ce qui provoque une forte hausse de latence et des timeouts.
 
 ### 8. structure du répertoire : 
 
@@ -214,7 +226,8 @@ Massive-data-par-Mhabrech-Ilef/
 │   ├── generate_post_10.py
 │   ├── count_users.py
 │   ├── count_posts.py
-│   ├── bench_fanout.sh
+│   ├── generate_fanout.sh
+│   ├── prepare_fanout_data.sh
 │   ├── plot_conc.py
 │   ├── plot_post.py
 │   └── plot_fanout.py

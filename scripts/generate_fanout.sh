@@ -1,162 +1,151 @@
 #!/usr/bin/env bash
 # ============================================================
-# Benchmark variation du fanout (fanout.csv)
+# Benchmark fanout (fanout.csv)
 # TinyInsta - Mhabrech Ilef 2025
-# - Posts par user fixés à 100  => 100 000 posts au total
-# - On varie le nombre de followees : 10, 50, 100
+#
+# Objectif :
+#   - 1000 users, 100 posts/user (≈ 100 000 posts)
+#   - on NE SUPPRIME PAS les posts existants
+#   - si < 100 000 posts -> on complète
+#   - fanout = 10, 50, 100 (variation du nombre de followees)
+#
+# CSV : PARAM,AVG_TIME,RUN,FAILED
+#   PARAM   = fanout (10, 50, 100)
+#   AVG_TIME= temps moyen (ms)
+#   RUN     = numéro de run (1..3)
+#   FAILED  = 0 (ok) ou 1 (au moins une requête échouée)
 # ============================================================
 
 set -euo pipefail
+shopt -s nullglob
+
+###########################################
+# CONFIG
+###########################################
 
 APP_URL="https://projectcloud-479410.ew.r.appspot.com"
 
 MAX_USERS=1000
 POSTS_PER_USER=100
-TARGET_POSTS=$(( MAX_USERS * POSTS_PER_USER ))   # 100 000 posts
+TOTAL_POSTS=$(( MAX_USERS * POSTS_PER_USER ))
 
-CONCURRENCY=50        # 50 utilisateurs concurrents
-RUNS=3               # 3 répétitions
+CONCURRENCY=50          # 50 utilisateurs concurrents
+RUNS=3                  # 3 répétitions
+
 FANOUT_LEVELS=(10 50 100)
+DEFAULT_FANOUT=10       # utilisé uniquement quand on complète les posts
 
-# On remonte d’un dossier pour utiliser la racine du projet
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="$ROOT_DIR/out"
 LOG_DIR="$OUT_DIR/log_fanout"
 CSV="$OUT_DIR/fanout.csv"
 
+SEED_SCRIPT="$ROOT_DIR/massive-gcp/seed.py"   # adapte le chemin si besoin
+
 mkdir -p "$OUT_DIR"
 mkdir -p "$LOG_DIR"
 
-# Création du CSV si nécessaire
 if [[ ! -f "$CSV" ]]; then
-    echo "PARAM,AVG_TIME,RUN,FAILED" > "$CSV"
+  echo "PARAM,AVG_TIME,RUN,FAILED" > "$CSV"
 fi
 
-# ============================================================
-# 1) Fonction : s’assurer qu’on a ~100 000 posts
-#    - si > 100 000 : on supprime juste l’excès
-#    - si < 100 000 : on crée les posts manquants avec seed.py
-# ============================================================
-ensure_posts() {
-  echo "📊 Vérification / ajustement des posts (objectif = ${TARGET_POSTS})…"
+echo "📁 Résultats fanout dans : $CSV"
+echo "📂 Logs dans : $LOG_DIR"
+echo
+echo "🎯 Objectif : ${MAX_USERS} users, ${POSTS_PER_USER} posts/user (~${TOTAL_POSTS} posts)"
+echo
 
-  CURRENT_POSTS=$(
-python3 - << 'EOF'
+###########################################
+# Fonctions utilitaires
+###########################################
+
+count_posts() {
+  python3 - << 'EOF'
 from google.cloud import datastore
 
 client = datastore.Client()
 query = client.query(kind="Post")
-count = sum(1 for _ in query.fetch())
-print(count)
+query.keys_only()
+print(sum(1 for _ in query.fetch()))
 EOF
-  )
-
-  echo "   → Posts actuels dans Datastore : ${CURRENT_POSTS}"
-
-  if (( CURRENT_POSTS > TARGET_POSTS )); then
-    EXCESS=$(( CURRENT_POSTS - TARGET_POSTS ))
-    echo "   → ${EXCESS} posts en trop, suppression des posts excédentaires…"
-
-python3 - << EOF
-from google.cloud import datastore
-
-TARGET = ${TARGET_POSTS}
-client = datastore.Client()
-query = client.query(kind="Post")
-
-# On récupère toutes les clés
-keys = [e.key for e in query.fetch()]
-current = len(keys)
-excess = current - TARGET
-
-if excess > 0:
-    to_delete = keys[:excess]
-    BATCH_SIZE = 500
-    for i in range(0, len(to_delete), BATCH_SIZE):
-        batch = to_delete[i:i+BATCH_SIZE]
-        client.delete_multi(batch)
-    print(f"Supprimé {excess} posts excédentaires.")
-else:
-    print("Aucun post excédentaire à supprimer.")
-EOF
-
-  elif (( CURRENT_POSTS < TARGET_POSTS )); then
-    MISSING=$(( TARGET_POSTS - CURRENT_POSTS ))
-    echo "   → Il manque ${MISSING} posts, création avec seed.py…"
-
-    BATCH_SIZE=50000
-    REMAINING=$MISSING
-
-    while (( REMAINING > 0 )); do
-      if (( REMAINING > BATCH_SIZE )); then
-        BATCH=$BATCH_SIZE
-      else
-        BATCH=$REMAINING
-      fi
-
-      echo "      → Seed batch de ${BATCH} posts (reste $((REMAINING - BATCH)))…"
-
-      python3 "${ROOT_DIR}/massive-gcp/seed.py" \
-        --users "$MAX_USERS" \
-        --posts "$BATCH" \
-        --follows-min 20 \
-        --follows-max 20 \
-        --prefix user
-
-      REMAINING=$(( REMAINING - BATCH ))
-    done
-  else
-    echo "   → Nombre de posts déjà correct."
-  fi
-
-  # Récap final
-  FINAL_POSTS=$(
-python3 - << 'EOF'
-from google.cloud import datastore
-
-client = datastore.Client()
-query = client.query(kind="Post")
-count = sum(1 for _ in query.fetch())
-print(count)
-EOF
-  )
-
-  echo "   → Posts après ajustement : ${FINAL_POSTS}"
 }
 
-# ============================================================
-# 2) Utilitaire : choisir 50 users aléatoires pour le benchmark
-# ============================================================
 pick_random_users() {
   seq 1 "$MAX_USERS" | shuf | head -n "$CONCURRENCY"
 }
 
-# ============================================================
-# 3) MAIN
-# ============================================================
+###########################################
+# Étape 0 : s'assurer qu'on a 100 000 posts
+###########################################
 
-# On s’assure qu’on a ~100 000 posts avant de jouer sur le fanout
-ensure_posts
+echo "📊 Vérification initiale du nombre de posts…"
+CURRENT_POSTS="$(count_posts)"
+echo "   → Posts actuels : ${CURRENT_POSTS}"
 
-for F in "${FANOUT_LEVELS[@]}"; do
-  echo "============================================"
-  echo "⭐ Benchmark fanout = ${F} followees par user"
-  echo "============================================"
+if (( CURRENT_POSTS < TOTAL_POSTS )); then
+  MISSING=$(( TOTAL_POSTS - CURRENT_POSTS ))
+  echo "   ⚠ Il manque ${MISSING} posts pour atteindre ${TOTAL_POSTS}."
+  echo "   ➕ Complétion des posts avec seed.py (sans suppression)…"
 
-  echo "🔄 Mise à jour des followees via seed.py (sans créer de nouveaux posts)…"
-  # --posts 0 : on ne crée pas de posts en plus, on ne fait qu’ajuster les relations de suivi
-  python3 "${ROOT_DIR}/massive-gcp/seed.py" \
+  python3 "$SEED_SCRIPT" \
     --users "$MAX_USERS" \
-    --posts 0 \
-    --follows-min "$F" \
-    --follows-max "$F" \
+    --posts "$MISSING" \
+    --follows-min "$DEFAULT_FANOUT" \
+    --follows-max "$DEFAULT_FANOUT" \
     --prefix user
 
-  # ------- Bench pour ce niveau de fanout -------
-  for RUN in $(seq 1 "$RUNS"); do
-    echo "--- RUN ${RUN} (fanout=${F}) ---"
+  CURRENT_POSTS="$(count_posts)"
+  echo "   → Posts après complétion : ${CURRENT_POSTS}"
 
-    LOG_PREFIX="${LOG_DIR}/F${F}_R${RUN}"
+  if (( CURRENT_POSTS < TOTAL_POSTS )); then
+    echo "   ❌ Après complétion, toujours moins de ${TOTAL_POSTS} posts. Abandon."
+    exit 1
+  fi
+
+elif (( CURRENT_POSTS > TOTAL_POSTS )); then
+  echo "   ⚠ Il y a déjà plus de ${TOTAL_POSTS} posts (${CURRENT_POSTS})."
+  echo "   ❗ On ne supprime rien, on continue avec ce dataset."
+else
+  echo "   ✅ OK, il y a exactement ${TOTAL_POSTS} posts."
+fi
+
+echo
+
+###########################################
+# Boucle principale : variation du fanout
+###########################################
+
+for FANOUT in "${FANOUT_LEVELS[@]}"; do
+  echo "==================================================="
+  echo "➡️  FANOUT = ${FANOUT} followees par utilisateur"
+  echo "    (on garde les mêmes posts : ${TOTAL_POSTS})"
+  echo
+
+  # 1) Reconfigurer les follows SANS toucher aux posts
+  echo "🔁 Configuration des followees avec seed.py (posts=0)…"
+
+  python3 "$SEED_SCRIPT" \
+    --users "$MAX_USERS" \
+    --posts 0 \
+    --follows-min "$FANOUT" \
+    --follows-max "$FANOUT" \
+    --prefix user
+
+  echo "   ✔ Suivis mis à jour pour FANOUT=${FANOUT}."
+  echo
+
+  # 2) Vérification de sécurité
+  CURRENT_POSTS="$(count_posts)"
+  echo "📊 Vérif : toujours ${CURRENT_POSTS} posts (on n'a rien supprimé)."
+  echo
+
+  # 3) Benchmark timeline
+  echo "🚀 Benchmark timeline pour FANOUT=${FANOUT}…"
+
+  for RUN in $(seq 1 "$RUNS"); do
+    echo "--- FANOUT=${FANOUT} RUN=${RUN} ---"
+
+    LOG_PREFIX="$LOG_DIR/F${FANOUT}_R${RUN}"
     FAILED=0
     AVG_MS=0
 
@@ -167,35 +156,55 @@ for F in "${FANOUT_LEVELS[@]}"; do
       USER_ID="user${U}"
       LOG_USER="${LOG_PREFIX}_u${U}.log"
 
+      echo "   → ab pour ${USER_ID} (log: $(basename "$LOG_USER"))"
+
       ab -n 10 -c 1 \
-        "${APP_URL}/api/timeline?user=${USER_ID}&limit=20" > "$LOG_USER" 2>&1 &
+        "${APP_URL}/api/timeline?user=${USER_ID}&limit=20" \
+        >"$LOG_USER" 2>&1 &
 
       pids+=( "$!" )
     done
 
-    # On attend tous les ab
+    # attendre la fin de tous les ab (on ignore le code retour ici)
     for pid in "${pids[@]}"; do
-      if ! wait "$pid"; then
-        FAILED=1
-      fi
+      wait "$pid" || true
     done
 
-    # Calcul du temps moyen si tout est OK
-    if (( FAILED == 0 )); then
-      files=( "${LOG_PREFIX}"_u*.log )
-      if (( ${#files[@]} > 0 )); then
-        AVG_MS=$(grep -h "Time per request:" "${files[@]}" \
-                 | awk '{sum+=$4; n++} END { if (n>0) printf "%.3f", sum/n }')
+    files=( "${LOG_PREFIX}"_u*.log )
 
-        [[ -z "$AVG_MS" ]] && FAILED=1 && AVG_MS=0
-      else
+    if (( ${#files[@]} == 0 )); then
+      echo "   ⚠ Aucun fichier de log pour FANOUT=${FANOUT} RUN=${RUN}"
+      FAILED=1
+      AVG_MS=0
+    else
+      # 1) Toujours calculer la moyenne des "Time per request"
+      AVG_MS=$(
+        grep -h "Time per request:" "${files[@]}" \
+        | awk '{sum+=$4; n++} END { if (n>0) printf "%.3f", sum/n }'
+      )
+
+      if [[ -z "$AVG_MS" ]]; then
+        echo "   ⚠ Impossible de lire 'Time per request' → FAILED=1"
         FAILED=1
+        AVG_MS=0
+      else
+        # 2) Déterminer FAILED en fonction des "Failed requests"
+        FAILED=0
+        for f in "${files[@]}"; do
+          # on exige "Failed requests: 0"
+          if ! grep -q "Failed requests:[[:space:]]*0" "$f"; then
+            FAILED=1
+            break
+          fi
+        done
       fi
     fi
 
-    echo "${F},${AVG_MS},${RUN},${FAILED}" >> "$CSV"
+    echo "   → AVG_TIME=${AVG_MS} ms, FAILED=${FAILED}"
+    echo "${FANOUT},${AVG_MS},${RUN},${FAILED}" >> "$CSV"
+    echo
   done
+
 done
 
-echo "✨ Benchmark fanout terminé. Résultats dans ${CSV}"
-echo "   Logs détaillés : ${LOG_DIR}"
+echo "✅ Bench fanout terminé. Résultats dans : $CSV"
