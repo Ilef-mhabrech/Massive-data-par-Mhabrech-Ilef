@@ -2,10 +2,10 @@
 
 ### Projet Données Massives & Cloud — Benchmark TinyInsta 
 Ce projet réalise trois benchmarks sur l’application TinyInsta, déployée sur Google Cloud App Engine et utilisant Google Datastore comme base NoSQL.
-Les objectifs :
-mesurer la scalabilité sur la concurrence,
-la scalabilité sur la taille des données,
-la scalabilité sur le fanout (nombre de followees).
+Les objectifs :<br>
+mesurer la scalabilité sur la concurrence,<br>
+la scalabilité sur la taille des données,<br>
+la scalabilité sur le fanout (nombre de followees).<br>
 
 ### 1. Application TinyInsta déployée
 URL de l'application TinyInsta déployée sur Google Cloud :
@@ -33,7 +33,7 @@ Les données seedées sont visibles dans GCP → Datastore.
 
 ### 3.  Benchmark 1 – Passage à l’échelle sur la concurrence
 
-** Objectif : 
+* Objectif : 
 Mesurer la performance de la timeline en faisant varier le nombre d’utilisateurs simulés simultanément :
 1, 10, 20, 50, 100, 1000 utilisateurs concurrents . 
 
