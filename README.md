@@ -62,11 +62,11 @@ out/conc.png
 ```
 
 ### 4. Benchmark 2 – Passage à l’échelle sur la taille des données (posts)
-Paramètres : 
-Concurrence : 50
-Followees fixes : 20
-Varier le nombre de posts par user :
-10, 100, 1000
+Paramètres : <br>
+Concurrence : 50<br>
+Followees fixes : 20<br>
+Varier le nombre de posts par user :<br>
+10, 100, 1000<br>
 
 Remarque : 
 2 fichiers sont utilisés : 
@@ -91,9 +91,9 @@ bash scripts/generate_post.sh 100
 bash scripts/generate_post.sh 1000
 ```
 Le script :
-détecte le nombre de posts existants
-génère seulement les posts manquants
-évite de refaire le seed complet
+détecte le nombre de posts existants,
+génère seulement les posts manquants,
+évite de refaire le seed complet.
 
 ▶Fichiers générés :
 ```
@@ -101,9 +101,9 @@ out/post.csv
 out/log_post/*.log
 ```
 ▶ preuves que j'avais crée : 
-1/ 100 000 posts : 
+##### 100 000 posts : 
 ![100 000 posts](./captures/100000posts.png)
-2/ 1 M de posts : 
+##### 1 M de posts : 
 ![1M posts](./captures/1Mposts.png)
 
 
@@ -118,10 +118,10 @@ out/post.png
 ```
 ### 5. Benchmark 3 – Variation du fanout (nombre de followees)
 
-Concurrence fixe : 50
-Posts fixes : 100*1000 users 
-Followees à tester :
-10, 50, 100
+Concurrence fixe : 50<br>
+Posts fixes : 100*1000 users <br>
+Followees à tester :<br>
+10, 50, 100<br>
 
  on prépare d'abord la data, on crée 100 000 posts pour le fichier fanout.csv.
 ▶on lance : 
