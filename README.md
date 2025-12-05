@@ -1,7 +1,7 @@
 # Massive-data-par-Mhabrech-Ilef
 
 ### Projet Données Massives & Cloud — Benchmark TinyInsta 
-Ce projet réalise trois benchmarks sur l’application TinyInsta, déployée sur Google Cloud App Engine et utilisant Google Datastore comme base NoSQL.
+Ce projet réalise trois benchmarks sur l’application TinyInsta, déployée sur Google Cloud App Engine et utilisant Google Datastore comme base NoSQL.<br>
 Les objectifs :<br>
 mesurer la scalabilité sur la concurrence,<br>
 la scalabilité sur la taille des données,<br>
