@@ -207,33 +207,7 @@ Fanout = 100 : temps encore très élevé (~6–7 s), le système est déjà en 
 
 
 ```
-Massive-data-par-Mhabrech-Ilef/
-│
-├── out/                       
-│   ├── conc.csv
-│   ├── post.csv
-│   ├── fanout.csv
-│   ├── conc.png
-│   ├── post.png
-│   ├── fanout.png
-│   ├── log_conc/
-│   ├── log_post/
-│   └── log_fanout/
-│
-├── scripts/
-│   ├── generate_conc.py
-│   ├── generate_post.py
-│   ├── generate_post_10.py
-│   ├── count_users.py
-│   ├── count_posts.py
-│   ├── generate_fanout.sh
-│   ├── prepare_fanout_data.sh
-│   ├── plot_conc.py
-│   ├── plot_post.py
-│   └── plot_fanout.py
-│
-└── README.md
-
+![tree](./tree.txt)
 ```
 
 
