@@ -22,7 +22,6 @@
 │   ├── log_fanout/
 │   ├── post.csv
 │   └── post.png
-├── README.md
 ├── scripts
 │   ├── count_post.py
 │   ├── count_user.py
@@ -34,6 +33,7 @@
 │   ├── plot_fanout.py
 │   ├── plot_post.py
 │   └── prepare_fanout_data.sh
+├── README.md
 └── tree.txt
 
-7 directories, 11105 files
+7 directories

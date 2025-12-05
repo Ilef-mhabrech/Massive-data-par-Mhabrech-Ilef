@@ -14,10 +14,10 @@ URL de l'application TinyInsta déployée sur Google Cloud :
 ```
 
 ### 2. Génération des données (seed)
-Les premières données ont été générées dans Datastore avec :
-1000 utilisateurs
-50 000 posts
-20 followees par utilisateur
+Les premières données ont été générées dans Datastore avec :<br>
+1000 utilisateurs <br>
+50 000 posts<br>
+20 followees par utilisateur<br>
 
 Commande utilisée la première fois : 
 ```sh
@@ -34,8 +34,8 @@ Les données seedées sont visibles dans GCP → Datastore.
 ### 3.  Benchmark 1 – Passage à l’échelle sur la concurrence
 
 * Objectif : 
-Mesurer la performance de la timeline en faisant varier le nombre d’utilisateurs simulés simultanément :
-1, 10, 20, 50, 100, 1000 utilisateurs concurrents . 
+Mesurer la performance de la timeline en faisant varier le nombre d’utilisateurs simulés simultanément :<br>
+1, 10, 20, 50, 100, 1000 utilisateurs concurrents . <br>
 
 ▶Exécution du benchmark Depuis la racine du projet pour génerer un fichier conc.csv:
 
@@ -90,7 +90,7 @@ chmod +x generate_post.sh
 bash scripts/generate_post.sh 100
 bash scripts/generate_post.sh 1000
 ```
-Le script :
+Le script :<br>
 détecte le nombre de posts existants,
 génère seulement les posts manquants,
 évite de refaire le seed complet.
@@ -137,28 +137,32 @@ chmod +x generate_fanout.sh
 ./scripts/generate_fanout.sh
 ```
 
+▶Résultats dans :
+```
+out/fanout.csv
+out/log_fanout/*.log
+```
+
 ▶Générer le graphique : 
 
 ```sh
 python3 scripts/plot_fanout.py
 ```
 
-Fichiers générés :
+▶Fichiers générés :
 ```
-out/fanout.csv
 out/fanout.png
-out/log_fanout/*.log
 ```
 
 ### 7. verification des données dans la data store : 
 #### A. nombre des users : 
-pour savoir le nombre des users dans la data store on utilisie la commande : 
+pour savoir le nombre des users dans la data store on utilise la commande : 
 ```
 cd scripts/ 
 python3 count_users.py
 ```
 #### B. nombre des posts : 
-pour savoir le nombre des posts dans la data store on utilisie la commande :
+pour savoir le nombre des posts dans la data store on utilise la commande :
 ```
 cd scripts/ 
 python3 count_posts.py
@@ -178,8 +182,6 @@ Le système scale correctement jusqu’à ~20 utilisateurs concurrents.
 Le backend supporte correctement une faible concurrence mais devient très lent lorsque le nombre d’utilisateurs simultanés augmente.
 La concurrence est le facteur de performance le plus critique pour TinyInsta, bien plus que la quantité de données.
 
- L
-
 ## B. Graphique – Nombre de posts
 ![post](./out/post.png)
 
@@ -194,7 +196,7 @@ Avec 1000 posts/user, la majorité des runs échouent : Datastore atteint ses li
 ## C. Graphique – Fanout
 ![fanout](./out/fanout.png)
 
-nterprétation :
+Interprétation :
 
 L’augmentation du fanout dégrade fortement les performances :
 Fanout = 10 : temps moyen faible (~0,5 s), service fluide.
@@ -207,7 +209,43 @@ Fanout = 100 : temps encore très élevé (~6–7 s), le système est déjà en 
 
 
 ```
-![tree](./tree.txt)
+.
+├── captures
+│   ├── 100000posts.png
+│   ├── 1Mposts.png
+│   └── Capture_du_data_1M.png
+├── massive-gcp
+│   ├── app.yaml
+│   ├── .gcloudignore
+│   ├── index.yaml
+│   ├── main.py
+│   ├── NOTES.md
+│   ├── README.md
+│   ├── requirements.txt
+│   └── seed.py
+├── out
+│   ├── conc.csv
+│   ├── conc.png
+│   ├── fanout.csv
+│   ├── fanout.png
+│   ├── log_conc/*
+│   ├── log_post/*
+│   ├── log_fanout/*
+│   ├── post.csv
+│   └── post.png
+├── scripts
+│   ├── count_post.py
+│   ├── count_user.py
+│   ├── generate_conc.sh
+│   ├── generate_fanout.sh
+│   ├── generate_post_10.sh
+│   ├── generate_post.sh
+│   ├── plot_conc.py
+│   ├── plot_fanout.py
+│   ├── plot_post.py
+│   └── prepare_fanout_data.sh
+├── README.md
+└── tree.txt
 ```
 
 
