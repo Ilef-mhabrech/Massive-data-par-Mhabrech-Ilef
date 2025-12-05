@@ -1,0 +1,53 @@
+This is ApacheBench, Version 2.3 <$Revision: 1913912 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking projectcloud-479410.ew.r.appspot.com (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Finished 500 requests
+
+
+Server Software:        Google
+Server Hostname:        projectcloud-479410.ew.r.appspot.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.2,ECDHE-ECDSA-CHACHA20-POLY1305,256,256
+Server Temp Key:        ECDH X25519 253 bits
+TLS Server Name:        projectcloud-479410.ew.r.appspot.com
+
+Document Path:          /api/timeline?user=fanout100_1&limit=20
+Document Length:        44 bytes
+
+Concurrency Level:      50
+Time taken for tests:   67.827 seconds
+Complete requests:      500
+Failed requests:        16
+   (Connect: 0, Receive: 0, Length: 16, Exceptions: 0)
+Non-2xx responses:      16
+Total transferred:      161600 bytes
+HTML transferred:       26464 bytes
+Requests per second:    7.37 [#/sec] (mean)
+Time per request:       6782.734 [ms] (mean)
+Time per request:       135.655 [ms] (mean, across all concurrent requests)
+Transfer rate:          2.33 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       41   55  22.6     47     318
+Processing:    27 4925 4665.5   2451   33976
+Waiting:       27 4925 4665.5   2451   33976
+Total:         70 4979 4665.4   2500   34022
+
+Percentage of the requests served within a certain time (ms)
+  50%   2500
+  66%   4021
+  75%   7024
+  80%   9779
+  90%  12060
+  95%  13156
+  98%  19804
+  99%  21647
+ 100%  34022 (longest request)
